@@ -5,4 +5,4 @@
    tasks:
     - name: Pull the official centos image from docker hub repository
       docker_image:
-        name: centos
+        name: alpine
