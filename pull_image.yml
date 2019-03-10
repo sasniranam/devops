@@ -1,0 +1,8 @@
+---
+ - hosts: dockerhosts
+   become: true
+   remote_user: ansadm
+   tasks:
+    - name: Pull the official centos image from docker hub repository
+      docker_image:
+        name: centos

@@ -1,0 +1,11 @@
+---
+ - hosts: dockerhosts
+   remote_user: ansadm
+   become: true
+   tasks:
+    - name: Copy the Docker file from ansible server to Docker master server
+      copy: src=/etc/ansible/DevOpsProjects/WebProject/Dockerfile dest=/DevWebProject/Dockerfile
+    - name: Create the custom web image from centos image
+      docker_image:
+        path: /DevWebProject
+        name: webimage

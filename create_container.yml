@@ -1,0 +1,13 @@
+---
+ - hosts: dockerhosts
+   remote_user: ansadm
+   become: true
+   tasks:
+    - name: Create the webapps container using webimage
+      docker_container:
+        name: webapp
+        image: webimage
+        state: started
+        ports:
+          - "8080:80"
+        detach: true

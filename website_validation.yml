@@ -1,0 +1,11 @@
+---
+ - hosts: localhost
+   tasks:
+    - name: Validate te website runnin in remote docker container host
+      uri:
+        url: http://192.168.1.105:8080
+        return_content: yes
+      register: webpage
+    - name: Fail if Devops is not in the page content
+      fail:
+      when: "'Devops' not in webpage.content"
